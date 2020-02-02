@@ -1,0 +1,12 @@
+minecraft {
+
+    version = config.minecraft_version + "-" + config.forge_version
+    runDir = "run"
+    useDepAts=true
+
+    mappings = "${config.mappings}"
+    replace "@VERSION@", project.version
+    replaceIn "util/constant/Constants.java"
+    if (project.hasProperty("signature"))
+        replace "@FINGERPRINT@", signature
+}
